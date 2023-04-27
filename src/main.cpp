@@ -1,5 +1,6 @@
 #include "main.hh"
 
+// Main Function
 int main(int argc, char** argv)
 {
 	App app;

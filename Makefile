@@ -14,7 +14,12 @@ l := allegro-5 allegro_main-5 allegro_font-5 allegro_image-5 allegro_primitives-
 
 LIBS := $p $l
 
-.PHONY: all clean gitcommands
+# Set the number of changes to commit after
+NUM_CHANGES := 5
+# Check the number of changes since the last commit
+NEW_CHANGES := $(shell git diff --name-only | wc -l)
+
+.PHONY: clean all gitcommands
 
 all: main gitcommands
 
@@ -27,24 +32,10 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.class $(DEP_FILES)
 main: $(OBJ_FILES)
 	$(CC) $(FLAGS) -I. `$(LIBS)` -o $@ $^
 
-gitcommands:
-	# Check the number of changes since the last commit
-	NUM_CHANGES_SINCE_COMMIT=$$(git diff --name-only | wc -l); \
-	# Increment the number of changes so far
-	NUM_CHANGES_SO_FAR=$$((NUM_CHANGES_SO_FAR + NUM_CHANGES_SINCE_COMMIT)); \
-	# If we have reached the target number of changes, commit and reset the count
-	if [ $$NUM_CHANGES_SO_FAR -ge $(NUM_CHANGES) ]; then \
-        git add . && git commit -a -m "Makefile commit" && git push origin main; \
-        NUM_CHANGES_SO_FAR=0; \
-    fi; \
-	# Update the count in the Makefile
-	echo "NUM_CHANGES_SO_FAR := $$NUM_CHANGES_SO_FAR" > makefile.tmp; \
-    mv makefile.tmp Makefile
-
-gitcommands_original: all
-	git add .
-	git commit -a -m "Makefile Commit"
-	git push origin main
+gitcommands: main
+	if [ $(NEW_CHANGES) -ge $(NUM_CHANGES) ]; then \
+		git add . && git commit -a -m "Makefile commit" && git push origin main; \
+	fi; \
 
 clean:
 	rm obj/*.o main
