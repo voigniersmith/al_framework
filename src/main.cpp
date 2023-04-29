@@ -1,4 +1,4 @@
-#include "main.hh"
+#include "main.hpp"
 
 // Main Function
 int main(int argc, char** argv)
@@ -8,8 +8,8 @@ int main(int argc, char** argv)
 	app.check_args(argc, argv);
 
 	app.init();
-	app.start_loop();
-	app.cleanup();
+	app.start();
+	app.destroy();
 
 	return 0;
 }
