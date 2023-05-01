@@ -20,13 +20,13 @@
 
 // Include Project Header Files
 #include "app.hpp"
-#include "display.hpp"
+#include "window.hpp"
 
 // Standard Namespace
 using namespace std;
 
 // Definitions
-#define DISP_W_DEFAULT	640
-#define	DISP_H_DEFAULT	480
+#define WINDOW_W_DEFAULT	640
+#define	WINDOW_H_DEFAULT	480
 
 #endif

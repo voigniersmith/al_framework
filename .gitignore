@@ -1,4 +1,4 @@
-main
-/obj/*.o
+./main
+./obj/*.o
 *.swp
-tags
+./tags

@@ -16,10 +16,10 @@ void App::show_help(char* prog_name)
 }
 
 // Public Methods
-void App::check_args(int argc, char** argv)
+void App::init(int argc, char** argv)
 {
 	// Set Defaults Here
-	// this->display.flag_reset();
+	this->window.init();
 
 	// Actually Check Arguments Here
 	for (int i = 0; i < argc; i++) {
@@ -27,20 +27,14 @@ void App::check_args(int argc, char** argv)
 
 		string s = argv[i];
 
-		if (s == "--fullscreen") {
-			//this->display.flag_clear();
-			//this->display.flag_set(ALLEGRO_FULLSCREEN_WINDOW);
-		}
+		if (s == "--fullscreen") {}
 		
 		if (s == "--windowed") {
 			int w = atoi(argv[i + 1]);
 			int h = atoi(argv[i + 2]);
 
-			w = w < DISP_W_DEFAULT ? DISP_W_DEFAULT : w;
-			h = h < DISP_H_DEFAULT ? DISP_H_DEFAULT : h;
-
-			//this->display.width = w;
-			//this->display.height = h;
+			w = w < WINDOW_W_DEFAULT ? WINDOW_W_DEFAULT : w;
+			h = h < WINDOW_H_DEFAULT ? WINDOW_H_DEFAULT : h;
 		}
 
 		if (s == "--help")
@@ -48,30 +42,12 @@ void App::check_args(int argc, char** argv)
 	}
 }
 
-void App::init()
-{
-	// Need basic allegro initialization
-	//assert(al_init());
-	
-	// Need a Display Object
-	//this->display.init();
-
-	// Need a Controller Object (Mouse/Keyboard/Etc.)
-	// Need an Image Class
-	// Need a Drawing Interface?
-}
-
 void App::start()
 {
-	//this->display.start();
-
-//	while(!exit)
-//	{
-//		this->event.handle();
-//	}
+	this->window.start();
 }
 
 void App::destroy()
 {
-	//this->display.destroy();
+	this->window.destroy();
 }

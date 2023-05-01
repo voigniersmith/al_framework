@@ -1,7 +1,7 @@
-#ifndef DISPLAY_HPP
-#define DISPLAY_HPP
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 
-class Display
+class Window
 {
 	// Primitive Fields
 	int flag;

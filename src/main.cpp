@@ -5,9 +5,7 @@ int main(int argc, char** argv)
 {
 	App app;
 	
-	app.check_args(argc, argv);
-
-	app.init();
+	app.init(argc, argv);
 	app.start();
 	app.destroy();
 
