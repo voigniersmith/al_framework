@@ -69,11 +69,11 @@ Stuff to Finish
 
 ### Raylib
 
-[Github](https://github.com/raysan5/raylib)
+[Github](https://github.com/raysan5/raylib)  
 [Cheat Sheet](https://www.raylib.com/cheatsheet/cheatsheet.html)
 
 ### Vim
 
-[Mastering Vim](https://youtu.be/wlR5gYd6um0)
+[Mastering Vim](https://youtu.be/wlR5gYd6um0)  
 [Stop Using Plugins](https://youtu.be/XA2WjJbmmoM)
 
