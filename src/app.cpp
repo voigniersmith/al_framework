@@ -1,5 +1,7 @@
 #include "main.hpp"
 
+#include <getopt.h>
+
 // Private Methods
 void App::show_help(char* prog_name)
 {
@@ -10,7 +12,7 @@ void App::show_help(char* prog_name)
 		available arguments:\n\
 		\t--help (-h)                    display this message & exit\
 		\t--fullscreen (-f)              start in fullscreen mode\
-		\t--windowed (-w) W H            start in windowed mode, with resolution WxH\
+		\t--windowed (-w) WxH            start in windowed mode, with resolution WxH\
 		\t                                   default is 640x480\
 	", prog_name);
 }
@@ -21,25 +23,42 @@ void App::init(int argc, char** argv)
 	// Set Defaults Here
 	this->window.init();
 
-	// Actually Check Arguments Here
-	for (int i = 0; i < argc; i++) {
-		printf("arg[%d] = '%s'\n", i, argv[i]);
+  const char * const short_opts = "fw:h";
+  option long_opts[] = {
+    { "fullscreen", no_argument, NULL, 'f' },
+    { "windowed", required_argument, NULL, 'w' },
+    { "help", no_argument, NULL, 'h' },
+    { NULL, no_argument, NULL, 0 }
+  };
 
-		string s = argv[i];
-
-		if (s == "--fullscreen") {}
-		
-		if (s == "--windowed") {
-			int w = atoi(argv[i + 1]);
-			int h = atoi(argv[i + 2]);
-
-			w = w < WINDOW_W_DEFAULT ? WINDOW_W_DEFAULT : w;
-			h = h < WINDOW_H_DEFAULT ? WINDOW_H_DEFAULT : h;
-		}
-
-		if (s == "--help")
-			show_help(argv[0]);
-	}
+  int opt = 0;
+  while ((opt = getopt_long(argc, argv, short_opts, long_opts, NULL)) != EOF) {
+    switch (opt) {
+      case 'f': {
+        printf("got fullscreen flag\n");
+        break;
+      }
+      case 'w': {
+        int w = 0;
+        int h = 0;
+        char * token;
+        token = strtok(optarg, "x");
+        w = atoi(token);
+        token = strtok(NULL, "x");
+        h = token != NULL ? atoi(token) : 0;
+        w = w < WINDOW_W_DEFAULT ? WINDOW_W_DEFAULT : w;
+        h = h < WINDOW_H_DEFAULT ? WINDOW_H_DEFAULT : h;
+        break;
+      }
+      case 'h': {
+        show_help(argv[0]);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  }
 }
 
 void App::start()

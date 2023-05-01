@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <assert.h>
+#include <string.h>
 
 // Data Structure Libraries
 #include <deque>
