@@ -19,7 +19,7 @@ in full by the contributors.
 For learning purposes, we suggest using vim and everything amazing that it contains. There are two videos
 in the resources section that are very helpful for going from a vim-beginner to a vim-intermediate user.
 
-This project has support for ctags. Please check the [Makefile Support](#Makefile Support) section.
+This project has support for ctags. Please check the [Makefile Support](#makefile-support) section.
 
 ## Makefile Support
 
