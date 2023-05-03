@@ -6,13 +6,25 @@
 
 class App
 {
-	Window window;
+	Window* window;
  	Audio audio;
+	
+	void init(int, char**);
 	void show_help(char*);
+	void destroy();
+	
 	public:
-		void init(int, char**);
+		App(int c, char** v)
+		{
+			init(c, v);
+		}
+		
 		void start();
-		void destroy();
+
+		~App()
+		{
+			destroy();
+		}
 };
 
 #endif

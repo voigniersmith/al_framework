@@ -44,14 +44,17 @@
 !_TAG_ROLE_DESCRIPTION!C++!macro	undef	/undefined/
 APP_HPP	./src/app.hpp	/^#define APP_HPP$/;"	d
 AUDIO_HPP	./src/audio.hpp	/^#define AUDIO_HPP$/;"	d
+App	./src/app.hpp	/^		App(int c, char** v)$/;"	f	class:App	access:public	signature:(int c,char ** v)
 App	./src/app.hpp	/^class App$/;"	c
+App::App	./src/app.hpp	/^		App(int c, char** v)$/;"	f	class:App	access:public	signature:(int c,char ** v)
 App::audio	./src/app.hpp	/^ 	Audio audio;$/;"	m	class:App	typeref:typename:Audio	access:private
-App::destroy	./src/app.hpp	/^		void destroy();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
-App::init	./src/app.hpp	/^		void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:public	signature:(int,char **)
+App::destroy	./src/app.hpp	/^	void destroy();$/;"	p	class:App	typeref:typename:void	access:private	signature:()
+App::init	./src/app.hpp	/^	void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:private	signature:(int,char **)
 App::show_help	./src/app.hpp	/^	void show_help(char*);$/;"	p	class:App	typeref:typename:void	access:private	signature:(char *)
 App::start	./src/app.hpp	/^		void start();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
 App::window	./src/app.hpp	/^	Window window;$/;"	m	class:App	typeref:typename:Window	access:private
-Audio	./src/audio.hpp	/^class Audio {$/;"	c
+App::~App	./src/app.hpp	/^		~App()$/;"	f	class:App	access:public	signature:()
+Audio	./src/audio.hpp	/^class Audio$/;"	c
 Audio::_add_music_track	./src/audio.hpp	/^	void _add_music_track(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
 Audio::_add_sound_effect	./src/audio.hpp	/^	void _add_sound_effect(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
 Audio::_destroy	./src/audio.hpp	/^	void _destroy();$/;"	p	class:Audio	typeref:typename:void	access:private	signature:()
@@ -75,6 +78,15 @@ Audio::update_bgm_volume	./src/audio.hpp	/^		void update_bgm_volume(float);$/;"	
 Audio::update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 Audio::update_sfx_volume	./src/audio.hpp	/^		void update_sfx_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 MAIN_HPP	./src/main.hpp	/^#define MAIN_HPP$/;"	d
+SCENE_HPP	./src/scene.hpp	/^#define SCENE_HPP$/;"	d
+SCENE_LOADING	./src/scene.hpp	/^	SCENE_LOADING		= 2,$/;"	e	enum:__anonad8d485d0103	access:public
+SCENE_MENU	./src/scene.hpp	/^	SCENE_MENU			= 1,$/;"	e	enum:__anonad8d485d0103	access:public
+SCENE_NULL	./src/scene.hpp	/^	SCENE_NULL			= 0,$/;"	e	enum:__anonad8d485d0103	access:public
+SCENE_TRANSITION	./src/scene.hpp	/^	SCENE_TRANSITION	= 3$/;"	e	enum:__anonad8d485d0103	access:public
+Scene	./src/scene.hpp	/^class Scene$/;"	c
+Scene::init	./src/scene.hpp	/^		void init();$/;"	p	class:Scene	typeref:typename:void	access:public	signature:()
+Scene::type	./src/scene.hpp	/^		SceneType type;$/;"	m	class:Scene	typeref:typename:SceneType	access:public
+SceneType	./src/scene.hpp	/^} SceneType;$/;"	t	typeref:enum:__anonad8d485d0103
 VOL_DEFAULT_BGM	./src/main.hpp	/^#define VOL_DEFAULT_BGM /;"	d
 VOL_DEFAULT_MASTER	./src/main.hpp	/^#define VOL_DEFAULT_MASTER /;"	d
 VOL_DEFAULT_SFX	./src/main.hpp	/^#define VOL_DEFAULT_SFX /;"	d
@@ -96,6 +108,7 @@ Window::title_set	./src/window.hpp	/^		void	title_set(string);$/;"	p	class:Windo
 Window::update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+__anonad8d485d0103	./src/scene.hpp	/^typedef enum {$/;"	g
 _add_music_track	./src/audio.hpp	/^	void _add_music_track(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
 _add_sound_effect	./src/audio.hpp	/^	void _add_sound_effect(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
 _destroy	./src/audio.hpp	/^	void _destroy();$/;"	p	class:Audio	typeref:typename:void	access:private	signature:()
@@ -106,7 +119,7 @@ add_sound_effect	./src/audio.hpp	/^		void add_sound_effect(char *, char *);$/;"	
 audio	./src/app.hpp	/^ 	Audio audio;$/;"	m	class:App	typeref:typename:Audio	access:private
 bgm	./src/audio.hpp	/^	std::map<std::string, Music> bgm;$/;"	m	class:Audio	typeref:typename:std::map<std::string,Music>	access:private
 bgm_volume	./src/audio.hpp	/^	float bgm_volume;$/;"	m	class:Audio	typeref:typename:float	access:private
-destroy	./src/app.hpp	/^		void destroy();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
+destroy	./src/app.hpp	/^	void destroy();$/;"	p	class:App	typeref:typename:void	access:private	signature:()
 destroy	./src/audio.hpp	/^		void destroy();$/;"	p	class:Audio	typeref:typename:void	access:public	signature:()
 destroy	./src/window.hpp	/^		void	destroy();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 flag_check	./src/window.hpp	/^		bool	flag_check(int);$/;"	p	class:Window	typeref:typename:bool	access:public	signature:(int)
@@ -119,8 +132,9 @@ get_sfx_volume	./src/audio.hpp	/^		float get_sfx_volume();$/;"	p	class:Audio	typ
 get_sound_effect	./src/audio.hpp	/^		Sound * get_sound_effect(char *);$/;"	p	class:Audio	typeref:typename:Sound *	access:public	signature:(char *)
 height	./src/window.hpp	/^		int		height;$/;"	m	class:Window	typeref:typename:int	access:public
 height_reset	./src/window.hpp	/^		void	height_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-init	./src/app.hpp	/^		void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:public	signature:(int,char **)
+init	./src/app.hpp	/^	void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:private	signature:(int,char **)
 init	./src/audio.hpp	/^		bool init();$/;"	p	class:Audio	typeref:typename:bool	access:public	signature:()
+init	./src/scene.hpp	/^		void init();$/;"	p	class:Scene	typeref:typename:void	access:public	signature:()
 init	./src/window.hpp	/^		void	init();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 master_volume	./src/audio.hpp	/^	float master_volume;$/;"	m	class:Audio	typeref:typename:float	access:private
 sfx	./src/audio.hpp	/^	std::map<std::string, Sound> sfx;$/;"	m	class:Audio	typeref:typename:std::map<std::string,Sound>	access:private
@@ -130,6 +144,7 @@ start	./src/app.hpp	/^		void start();$/;"	p	class:App	typeref:typename:void	acce
 start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 title	./src/window.hpp	/^		string	title;$/;"	m	class:Window	typeref:typename:string	access:public
 title_set	./src/window.hpp	/^		void	title_set(string);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(string)
+type	./src/scene.hpp	/^		SceneType type;$/;"	m	class:Scene	typeref:typename:SceneType	access:public
 update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 update_bgm_volume	./src/audio.hpp	/^		void update_bgm_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
@@ -137,3 +152,4 @@ update_sfx_volume	./src/audio.hpp	/^		void update_sfx_volume(float);$/;"	p	class
 width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 window	./src/app.hpp	/^	Window window;$/;"	m	class:App	typeref:typename:Window	access:private
+~App	./src/app.hpp	/^		~App()$/;"	f	class:App	access:public	signature:()

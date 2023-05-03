@@ -19,11 +19,11 @@ void App::show_help(char* prog_name)
 void App::init(int argc, char** argv)
 {
 	// Set Defaults Here
-	this->window.init();
+	this->window = new Window();
 	this->audio.init();
 
 	string prog_name = argv[0];
-	this->window.title_set(prog_name);
+	this->window->title_set(prog_name);
 
 	const char * const short_opts = "fw:h";
 	option long_opts[] = {
@@ -64,7 +64,7 @@ void App::init(int argc, char** argv)
 
 void App::start()
 {
-	this->window.start();
+	this->window->start();
 
 	// Driver Loop
 	while (!WindowShouldClose())
@@ -72,7 +72,7 @@ void App::start()
 		// Update
 		//----------------------------------------------------------------------------------
 		// TODO: Update your variables here
-		window.update();
+		window->update();
 		//----------------------------------------------------------------------------------
 
 		// Draw
@@ -90,6 +90,6 @@ void App::start()
 
 void App::destroy()
 {
-	this->window.destroy();
+	delete this->window;
 	this->audio.destroy();
 }

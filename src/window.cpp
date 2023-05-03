@@ -55,8 +55,3 @@ void Window::update()
 	this->height = GetScreenHeight();
 }
 
-void Window::destroy()
-{
-	CloseWindow();
-}
-

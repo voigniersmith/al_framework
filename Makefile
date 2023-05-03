@@ -12,36 +12,39 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 p := pkg-config --cflags --libs
 l := raylib
 
-RAYLIB := -I/opt/homebrew/Cellar/raylib/4.5.0/include -L/opt/homebrew/Cellar/raylib/4.5.0/lib -lraylib
-
 LIBS := $p $l
 
 # Set the number of changes to commit after
 NUM_CHANGES := 10
-# Check the number of changes since the last commit
-NEW_CHANGES := $(shell git diff --name-only | wc -l)
+# Check the number of changes since the last commit (and remove whitespace)
+NEW_CHANGES := $(shell git diff --name-only | wc -l | sed -e 's/^[ \t]*//')
 
-.PHONY: clean all gitcommands gen_ctags
-.SILENT: gen_ctags
+.PHONY: clean all git_status gen_ctags
+.SILENT: run git_command git_status gen_ctags
 
-all: main gitcommands gen_ctags
-
-#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP_FILES)
-#	$(CC) $(FLAGS) -I. `$(LIBS)` -c -o $@ $<
-
-#main: $(OBJ_FILES)
-#	$(CC) $(FLAGS) -I. `$(LIBS)` -o $@ $^
+all: main git_command git_status gen_ctags
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP_FILES)
-	$(CC) $(FLAGS) $(RAYLIB) -c -o $@ $<
+	$(CC) $(FLAGS) -I. `$(LIBS)` -c -o $@ $<
 
 main: $(OBJ_FILES)
-	$(CC) $(FLAGS) $(RAYLIB) -o $@ $^
+	$(CC) $(FLAGS) -I. `$(LIBS)` -o $@ $^
 
-gitcommands: main
+run: main
+	./main
+
+clean:
+	rm obj/*.o main
+
+git_command: main
 	if [ $(NEW_CHANGES) -ge $(NUM_CHANGES) ]; then \
 		git add . && git commit -a -m "Makefile Incremental Commit" && git push origin main; \
 	fi;
+
+git_status: git_command
+	echo \
+	echo "Changed $(NEW_CHANGES) files, will push at $(NUM_CHANGES) files." \
+	echo
 
 gen_ctags: main
 	ctags --c++-kinds=+p --fields=+iaS --extras=+q -f tags_temp $(DEP_FILES); \
@@ -50,7 +53,4 @@ gen_ctags: main
 	else \
 		echo "no update to ctags" && rm tags_temp; \
 	fi;
-
-clean:
-	rm obj/*.o main
 
