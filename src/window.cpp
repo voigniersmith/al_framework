@@ -21,23 +21,23 @@ void Window::flag_reset()
 
 void Window::width_reset()
 {
-	this->width = WINDOW_W_DEFAULT;
+	this->width = WINDOW_DEFAULT_W;
 }
 
 void Window::height_reset()
 {
-	this->height = WINDOW_H_DEFAULT;
+	this->height = WINDOW_DEFAULT_H;
 }
 
 void Window::init()
 {
-	width_reset();
-	height_reset();
+	SetTargetFPS(WINDOW_DEFAULT_FPS);
+	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 }
 
 void Window::start()
 {	
-	InitWindow(this->width, this->height, "STARTER TEXT");	
+	InitWindow(this->width, this->height, "STARTER TEXT");
 }
 
 void Window::destroy()

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <assert.h>
 #include <string.h>
+#include <getopt.h>
 
 // Data Structure Libraries
 #include <deque>
@@ -28,10 +29,11 @@
 using namespace std;
 
 // Definitions
-#define WINDOW_W_DEFAULT	  640
-#define	WINDOW_H_DEFAULT	  480
-#define DEFAULT_MASTER_VOL  0.75f 
-#define DEFAULT_SFX_VOL     0.60f
-#define DEFAULT_BGM_VOL     0.50f
+#define WINDOW_DEFAULT_W	  640
+#define	WINDOW_DEFAULT_H	  480
+#define WINDOW_DEFAULT_FPS	   60
+#define VOL_DEFAULT_MASTER  0.75f 
+#define VOL_DEFAULT_SFX     0.60f
+#define VOL_DEFAULT_BGM     0.50f
 
 #endif
