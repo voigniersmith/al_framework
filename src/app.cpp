@@ -22,6 +22,9 @@ void App::init(int argc, char** argv)
 	this->window.init();
 	this->audio.init();
 
+	string prog_name = argv[0];
+	this->window.title_set(prog_name);
+
 	const char * const short_opts = "fw:h";
 	option long_opts[] = {
 		{ "fullscreen", no_argument, NULL, 'f' },

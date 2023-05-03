@@ -20,13 +20,13 @@
 // Algorithm Libraries
 #include <algorithm>
 
+// Standard Namespace
+using namespace std;
+
 // Include Project Header Files
 #include "app.hpp"
 #include "window.hpp"
 #include "audio.hpp"
-
-// Standard Namespace
-using namespace std;
 
 // Definitions
 #define WINDOW_DEFAULT_W	  640

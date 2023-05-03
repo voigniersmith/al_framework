@@ -91,6 +91,8 @@ Window::height	./src/window.hpp	/^		int		height;$/;"	m	class:Window	typeref:type
 Window::height_reset	./src/window.hpp	/^		void	height_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::init	./src/window.hpp	/^		void	init();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::title	./src/window.hpp	/^		string	title;$/;"	m	class:Window	typeref:typename:string	access:public
+Window::title_set	./src/window.hpp	/^		void	title_set(string);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(string)
 Window::update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
@@ -126,6 +128,8 @@ sfx_volume	./src/audio.hpp	/^	float sfx_volume;$/;"	m	class:Audio	typeref:typena
 show_help	./src/app.hpp	/^	void show_help(char*);$/;"	p	class:App	typeref:typename:void	access:private	signature:(char *)
 start	./src/app.hpp	/^		void start();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
 start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+title	./src/window.hpp	/^		string	title;$/;"	m	class:Window	typeref:typename:string	access:public
+title_set	./src/window.hpp	/^		void	title_set(string);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(string)
 update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 update_bgm_volume	./src/audio.hpp	/^		void update_bgm_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)

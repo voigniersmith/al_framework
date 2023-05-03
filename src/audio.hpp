@@ -1,7 +1,8 @@
 #ifndef AUDIO_HPP
 #define AUDIO_HPP
 
-class Audio {
+class Audio
+{
 	// Adding sounds/music
 	void _add_sound_effect(char *, char *);
 	void _add_music_track(char *, char *);

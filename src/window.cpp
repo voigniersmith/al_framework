@@ -1,5 +1,10 @@
 #include "main.hpp"
 
+void Window::title_set(string s)
+{
+	this->title = s;
+}
+
 bool Window::flag_check(int f)
 {
 	assert(f > 0);
@@ -40,7 +45,7 @@ void Window::init()
 
 void Window::start()
 {	
-	InitWindow(this->width, this->height, "STARTER TEXT");
+	InitWindow(this->width, this->height, this->title.c_str());
 }
 
 void Window::update()

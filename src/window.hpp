@@ -6,7 +6,9 @@ class Window
 	public:
 		int		width;
 		int		height;
+		string	title;
 		
+		void	title_set(string);
 		bool	flag_check(int);
 		void 	flag_set(int);
 		void 	flag_clear(int);

@@ -12,6 +12,8 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 p := pkg-config --cflags --libs
 l := raylib
 
+RAYLIB := -I/opt/homebrew/Cellar/raylib/4.5.0/include -L/opt/homebrew/Cellar/raylib/4.5.0/lib -lraylib
+
 LIBS := $p $l
 
 # Set the number of changes to commit after
@@ -24,11 +26,17 @@ NEW_CHANGES := $(shell git diff --name-only | wc -l)
 
 all: main gitcommands gen_ctags
 
+#$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP_FILES)
+#	$(CC) $(FLAGS) -I. `$(LIBS)` -c -o $@ $<
+
+#main: $(OBJ_FILES)
+#	$(CC) $(FLAGS) -I. `$(LIBS)` -o $@ $^
+
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(DEP_FILES)
-	$(CC) $(FLAGS) -I. `$(LIBS)` -c -o $@ $<
+	$(CC) $(FLAGS) $(RAYLIB) -c -o $@ $<
 
 main: $(OBJ_FILES)
-	$(CC) $(FLAGS) -I. `$(LIBS)` -o $@ $^
+	$(CC) $(FLAGS) $(RAYLIB) -o $@ $^
 
 gitcommands: main
 	if [ $(NEW_CHANGES) -ge $(NUM_CHANGES) ]; then \
