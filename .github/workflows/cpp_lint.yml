@@ -1,0 +1,19 @@
+name: C++ Lint
+
+on: push
+
+jobs:
+  lint:
+    name: Run lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup Clang Format
+      run: sudo apt-get install clang-format
+    - name: Lint code with Clang Format
+      run: clang-format --dry-run --Werror **/*.cpp **/*.h
+    - name: Setup Clang Tidy
+      run: sudo apt-get install clang-tidy
+    - name: Lint code with Clang Tidy
+      run: clang-tidy **/*.cpp **/*.h -- -std=c++11
