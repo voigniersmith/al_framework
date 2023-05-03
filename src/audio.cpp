@@ -3,7 +3,9 @@
 // Public Functions
 bool Audio::init() {
   InitAudioDevice();
-  SetMasterVolume(MASTER_VOL_DEFAULT);
+  SetMasterVolume(DEFAULT_MASTER_VOL);
+  update_sfx_volume(DEFAULT_SFX_VOL);
+  update_bgm_volume(DEFAULT_BGM_VOL);
   return IsAudioDeviceReady();
 }
 
@@ -34,6 +36,33 @@ Music * Audio::get_music_track(char * id) {
 void Audio::destroy() {
   this->_destroy();
   return;
+}
+
+void Audio::update_master_volume(float volume) {
+  this->master_volume = volume;
+  return;
+}
+
+void Audio::update_sfx_volume(float volume) {
+  this->sfx_volume = volume;
+  return;
+}
+
+void Audio::update_bgm_volume(float volume) {
+  this->bgm_volume = volume;
+  return;
+}
+
+float Audio::get_master_volume() {
+  return this->master_volume;
+}
+
+float Audio::get_sfx_volume() {
+  return this->sfx_volume;
+}
+
+float Audio::get_bgm_volume() {
+  return this->bgm_volume;
 }
 
 // Private Functions

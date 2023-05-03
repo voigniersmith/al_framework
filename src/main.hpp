@@ -28,8 +28,10 @@
 using namespace std;
 
 // Definitions
-#define WINDOW_W_DEFAULT	640
-#define	WINDOW_H_DEFAULT	480
-#define MASTER_VOL_DEFAULT 0.75f 
+#define WINDOW_W_DEFAULT	  640
+#define	WINDOW_H_DEFAULT	  480
+#define DEFAULT_MASTER_VOL  0.75f 
+#define DEFAULT_SFX_VOL     0.60f
+#define DEFAULT_BGM_VOL     0.50f
 
 #endif
