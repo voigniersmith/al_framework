@@ -74,24 +74,24 @@ Audio::sfx_volume	./src/audio.hpp	/^	float sfx_volume;$/;"	m	class:Audio	typeref
 Audio::update_bgm_volume	./src/audio.hpp	/^		void update_bgm_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 Audio::update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 Audio::update_sfx_volume	./src/audio.hpp	/^		void update_sfx_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
-DEFAULT_BGM_VOL	./src/main.hpp	/^#define DEFAULT_BGM_VOL /;"	d
-DEFAULT_MASTER_VOL	./src/main.hpp	/^#define DEFAULT_MASTER_VOL /;"	d
-DEFAULT_SFX_VOL	./src/main.hpp	/^#define DEFAULT_SFX_VOL /;"	d
 MAIN_HPP	./src/main.hpp	/^#define MAIN_HPP$/;"	d
+VOL_DEFAULT_BGM	./src/main.hpp	/^#define VOL_DEFAULT_BGM /;"	d
+VOL_DEFAULT_MASTER	./src/main.hpp	/^#define VOL_DEFAULT_MASTER /;"	d
+VOL_DEFAULT_SFX	./src/main.hpp	/^#define VOL_DEFAULT_SFX /;"	d
+WINDOW_DEFAULT_FPS	./src/main.hpp	/^#define WINDOW_DEFAULT_FPS	/;"	d
+WINDOW_DEFAULT_H	./src/main.hpp	/^#define	WINDOW_DEFAULT_H	/;"	d
+WINDOW_DEFAULT_W	./src/main.hpp	/^#define WINDOW_DEFAULT_W	/;"	d
 WINDOW_HPP	./src/window.hpp	/^#define WINDOW_HPP$/;"	d
-WINDOW_H_DEFAULT	./src/main.hpp	/^#define	WINDOW_H_DEFAULT	/;"	d
-WINDOW_W_DEFAULT	./src/main.hpp	/^#define WINDOW_W_DEFAULT	/;"	d
 Window	./src/window.hpp	/^class Window$/;"	c
 Window::destroy	./src/window.hpp	/^		void	destroy();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-Window::flag	./src/window.hpp	/^	int flag;$/;"	m	class:Window	typeref:typename:int	access:private
-Window::flag_clear	./src/window.hpp	/^		void 	flag_clear();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-Window::flag_get	./src/window.hpp	/^		int		flag_get();$/;"	p	class:Window	typeref:typename:int	access:public	signature:()
-Window::flag_reset	./src/window.hpp	/^		void	flag_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::flag_check	./src/window.hpp	/^		bool	flag_check(int);$/;"	p	class:Window	typeref:typename:bool	access:public	signature:(int)
+Window::flag_clear	./src/window.hpp	/^		void 	flag_clear(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 Window::flag_set	./src/window.hpp	/^		void 	flag_set(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 Window::height	./src/window.hpp	/^		int		height;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::height_reset	./src/window.hpp	/^		void	height_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::init	./src/window.hpp	/^		void	init();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 _add_music_track	./src/audio.hpp	/^	void _add_music_track(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
@@ -107,10 +107,8 @@ bgm_volume	./src/audio.hpp	/^	float bgm_volume;$/;"	m	class:Audio	typeref:typena
 destroy	./src/app.hpp	/^		void destroy();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
 destroy	./src/audio.hpp	/^		void destroy();$/;"	p	class:Audio	typeref:typename:void	access:public	signature:()
 destroy	./src/window.hpp	/^		void	destroy();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-flag	./src/window.hpp	/^	int flag;$/;"	m	class:Window	typeref:typename:int	access:private
-flag_clear	./src/window.hpp	/^		void 	flag_clear();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-flag_get	./src/window.hpp	/^		int		flag_get();$/;"	p	class:Window	typeref:typename:int	access:public	signature:()
-flag_reset	./src/window.hpp	/^		void	flag_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+flag_check	./src/window.hpp	/^		bool	flag_check(int);$/;"	p	class:Window	typeref:typename:bool	access:public	signature:(int)
+flag_clear	./src/window.hpp	/^		void 	flag_clear(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 flag_set	./src/window.hpp	/^		void 	flag_set(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 get_bgm_volume	./src/audio.hpp	/^		float get_bgm_volume();$/;"	p	class:Audio	typeref:typename:float	access:public	signature:()
 get_master_volume	./src/audio.hpp	/^		float get_master_volume();$/;"	p	class:Audio	typeref:typename:float	access:public	signature:()
@@ -128,6 +126,7 @@ sfx_volume	./src/audio.hpp	/^	float sfx_volume;$/;"	m	class:Audio	typeref:typena
 show_help	./src/app.hpp	/^	void show_help(char*);$/;"	p	class:App	typeref:typename:void	access:private	signature:(char *)
 start	./src/app.hpp	/^		void start();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
 start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 update_bgm_volume	./src/audio.hpp	/^		void update_bgm_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 update_sfx_volume	./src/audio.hpp	/^		void update_sfx_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)

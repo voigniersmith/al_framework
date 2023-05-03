@@ -1,8 +1,6 @@
 #ifndef AUDIO_HPP
 #define AUDIO_HPP
 
-#include "main.hpp"
-
 class Audio {
 	// Adding sounds/music
 	void _add_sound_effect(char *, char *);

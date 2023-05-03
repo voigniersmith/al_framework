@@ -62,23 +62,26 @@ void App::init(int argc, char** argv)
 void App::start()
 {
 	this->window.start();
+
+	// Driver Loop
 	while (!WindowShouldClose())
 	{
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
+		// Update
+		//----------------------------------------------------------------------------------
+		// TODO: Update your variables here
+		window.update();
+		//----------------------------------------------------------------------------------
 
-        // Draw
-        //----------------------------------------------------------------------------------
-        BeginDrawing();
+		// Draw
+		//----------------------------------------------------------------------------------
+		BeginDrawing();
 
-            ClearBackground(RAYWHITE);
+		ClearBackground(RAYWHITE);
 
-            DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+		DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
-        EndDrawing();
-        //----------------------------------------------------------------------------------
+		EndDrawing();
+		//----------------------------------------------------------------------------------
 	}
 }
 

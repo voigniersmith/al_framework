@@ -1,22 +1,21 @@
 #include "main.hpp"
 
-int	Window::flag_get()
+bool Window::flag_check(int f)
 {
-	return this->flag;
+	assert(f > 0);
+	return IsWindowState(f);
 }
 
 void Window::flag_set(int f)
 {
-	this->flag = f;
+	assert(f > 0);
+	SetWindowState(f);
 }
 
-void Window::flag_clear()
+void Window::flag_clear(int f)
 {
-	this->flag = 0;
-}
-
-void Window::flag_reset()
-{
+	assert(f > 0);
+	ClearWindowState(f);
 }
 
 void Window::width_reset()
@@ -31,13 +30,24 @@ void Window::height_reset()
 
 void Window::init()
 {
+	width_reset();
+	height_reset();
+
+	flag_set(FLAG_WINDOW_RESIZABLE);
+
 	SetTargetFPS(WINDOW_DEFAULT_FPS);
-	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 }
 
 void Window::start()
 {	
 	InitWindow(this->width, this->height, "STARTER TEXT");
+}
+
+void Window::update()
+{
+	// Set Logical Size in Case of Resize
+	this->width = GetScreenWidth();
+	this->height = GetScreenHeight();
 }
 
 void Window::destroy()
