@@ -22,6 +22,7 @@ void App::init(int argc, char** argv)
 {
 	// Set Defaults Here
 	this->window.init();
+  this->audio.init();
 
   const char * const short_opts = "fw:h";
   option long_opts[] = {
@@ -69,4 +70,5 @@ void App::start()
 void App::destroy()
 {
 	this->window.destroy();
+  this->audio.destroy();
 }
