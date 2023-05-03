@@ -1,5 +1,5 @@
-./main
-./obj/*.o
+#main
+obj/
 *.swp
 ./tags
 resources/
