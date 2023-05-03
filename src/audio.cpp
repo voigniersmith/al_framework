@@ -3,6 +3,7 @@
 // Public Functions
 bool Audio::init() {
   InitAudioDevice();
+  SetMasterVolume(MASTER_VOL_DEFAULT);
   return IsAudioDeviceReady();
 }
 
