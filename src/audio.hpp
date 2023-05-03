@@ -5,25 +5,36 @@
 
 #include <map>
 
-typedef enum {
-  BGM,
-  SFX
-} SoundType;
-
 class Audio {
   private:
-    std::map<std::string, Sound> bgm;
-    std::map<std::string, Sound> sfx;
-    void _add_sound_track(char *, char *);
+    // Adding
     void _add_sound_effect(char *, char *);
-    Sound * _get_sound_track(char *);
+    void _add_music_track(char *, char *);
+
+    // Retrieving
     Sound * _get_sound_effect(char *);
+    Music * _get_music_track(char *);
+
+    // Cleaning up
     void _destroy();
+
+    // Class Variables
+    std::map<std::string, Sound> sfx;
+    std::map<std::string, Music> bgm;
   
   public:
+    // Initialization
     bool init();
-    void add_sound(char *, char *, SoundType);
-    Sound * get_sound(char *, SoundType);
+
+    // Adding
+    void add_sound_effect(char *, char *);
+    void add_music_track(char *, char *);
+
+    // Retrieving
+    Sound * get_sound_effect(char *);
+    Music * get_music_track(char *);
+
+    // Cleaning up
     void destroy();
 };
 #endif

@@ -1,33 +1,33 @@
 #include "main.hpp"
 
+// Public Functions
 bool Audio::init() {
   InitAudioDevice();
   return IsAudioDeviceReady();
 }
 
-void Audio::add_sound(char * id, char * fname, SoundType tp) {
+void Audio::add_sound_effect(char * id, char * fname) {
   assert(id);
   assert(fname);
-  if (tp == BGM) {
-    this->_add_sound_track(id, fname);
-    return;
-  }
-  if (tp == SFX) {
-    this->_add_sound_effect(id, fname);
-    return;
-  }
+  this->_add_sound_effect(id, fname);
   return;
 }
 
-Sound * Audio::get_sound(char * id, SoundType tp) {
+void Audio::add_music_track(char * id, char * fname) {
   assert(id);
-  if (tp == BGM) {
-    return this->_get_sound_track(id);
-  }
-  if (tp == SFX) {
-    return this->_get_sound_effect(id);
-  }
-  return NULL;
+  assert(fname);
+  this->_add_music_track(id, fname);
+  return;
+}
+
+Sound * Audio::get_sound_effect(char * id) {
+  assert(id);
+  return this->_get_sound_effect(id);
+}
+
+Music * Audio::get_music_track(char * id) {
+  assert(id);
+  return this->_get_music_track(id);
 }
 
 void Audio::destroy() {
@@ -35,11 +35,7 @@ void Audio::destroy() {
   return;
 }
 
-void Audio::_add_sound_track(char * id, char * fname) {
-  Sound s = LoadSound(fname);
-  this->bgm[id] = s;
-  return;
-}
+// Private Functions
 
 void Audio::_add_sound_effect(char * id, char * fname) {
   Sound s = LoadSound(fname);
@@ -47,11 +43,10 @@ void Audio::_add_sound_effect(char * id, char * fname) {
   return;
 }
 
-Sound * Audio::_get_sound_track(char * id) {
-  if (this->bgm.find(id) == this->bgm.end()) {
-    return NULL;
-  }
-  return &(this->bgm[id]);
+void Audio::_add_music_track(char * id, char * fname) {
+  Music s = LoadMusicStream(fname);
+  this->bgm[id] = s;
+  return;
 }
 
 Sound * Audio::_get_sound_effect(char * id) {
@@ -61,12 +56,19 @@ Sound * Audio::_get_sound_effect(char * id) {
   return &(this->sfx[id]);
 }
 
-void Audio::_destroy() {
-  for (auto & a : this->bgm) {
-    UnloadSound(a.second);
+Music * Audio::_get_music_track(char * id) {
+  if (this->bgm.find(id) == this->bgm.end()) {
+    return NULL;
   }
+  return &(this->bgm[id]);
+}
+
+void Audio::_destroy() {
   for (auto & a : this->sfx) {
     UnloadSound(a.second);
+  }
+  for (auto & a : this->bgm) {
+    UnloadMusicStream(a.second);
   }
   CloseAudioDevice();
   return;
