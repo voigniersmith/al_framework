@@ -22,6 +22,7 @@
 // Include Project Header Files
 #include "app.hpp"
 #include "window.hpp"
+#include "audio.hpp"
 
 // Standard Namespace
 using namespace std;
