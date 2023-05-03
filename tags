@@ -52,7 +52,7 @@ App::destroy	./src/app.hpp	/^	void destroy();$/;"	p	class:App	typeref:typename:v
 App::init	./src/app.hpp	/^	void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:private	signature:(int,char **)
 App::show_help	./src/app.hpp	/^	void show_help(char*);$/;"	p	class:App	typeref:typename:void	access:private	signature:(char *)
 App::start	./src/app.hpp	/^		void start();$/;"	p	class:App	typeref:typename:void	access:public	signature:()
-App::window	./src/app.hpp	/^	Window window;$/;"	m	class:App	typeref:typename:Window	access:private
+App::window	./src/app.hpp	/^	Window* window;$/;"	m	class:App	typeref:typename:Window *	access:private
 App::~App	./src/app.hpp	/^		~App()$/;"	f	class:App	access:public	signature:()
 Audio	./src/audio.hpp	/^class Audio$/;"	c
 Audio::_add_music_track	./src/audio.hpp	/^	void _add_music_track(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
@@ -94,20 +94,22 @@ WINDOW_DEFAULT_FPS	./src/main.hpp	/^#define WINDOW_DEFAULT_FPS	/;"	d
 WINDOW_DEFAULT_H	./src/main.hpp	/^#define	WINDOW_DEFAULT_H	/;"	d
 WINDOW_DEFAULT_W	./src/main.hpp	/^#define WINDOW_DEFAULT_W	/;"	d
 WINDOW_HPP	./src/window.hpp	/^#define WINDOW_HPP$/;"	d
+Window	./src/window.hpp	/^		Window()$/;"	f	class:Window	access:public	signature:()
 Window	./src/window.hpp	/^class Window$/;"	c
-Window::destroy	./src/window.hpp	/^		void	destroy();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::Window	./src/window.hpp	/^		Window()$/;"	f	class:Window	access:public	signature:()
 Window::flag_check	./src/window.hpp	/^		bool	flag_check(int);$/;"	p	class:Window	typeref:typename:bool	access:public	signature:(int)
 Window::flag_clear	./src/window.hpp	/^		void 	flag_clear(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 Window::flag_set	./src/window.hpp	/^		void 	flag_set(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 Window::height	./src/window.hpp	/^		int		height;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::height_reset	./src/window.hpp	/^		void	height_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-Window::init	./src/window.hpp	/^		void	init();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::init	./src/window.hpp	/^	void	init();$/;"	p	class:Window	typeref:typename:void	access:private	signature:()
 Window::start	./src/window.hpp	/^		void	start();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::title	./src/window.hpp	/^		string	title;$/;"	m	class:Window	typeref:typename:string	access:public
 Window::title_set	./src/window.hpp	/^		void	title_set(string);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(string)
 Window::update	./src/window.hpp	/^		void	update();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 Window::width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 Window::width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+Window::~Window	./src/window.hpp	/^		~Window()$/;"	f	class:Window	access:public	signature:()
 __anonad8d485d0103	./src/scene.hpp	/^typedef enum {$/;"	g
 _add_music_track	./src/audio.hpp	/^	void _add_music_track(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
 _add_sound_effect	./src/audio.hpp	/^	void _add_sound_effect(char *, char *);$/;"	p	class:Audio	typeref:typename:void	access:private	signature:(char *,char *)
@@ -121,7 +123,6 @@ bgm	./src/audio.hpp	/^	std::map<std::string, Music> bgm;$/;"	m	class:Audio	typer
 bgm_volume	./src/audio.hpp	/^	float bgm_volume;$/;"	m	class:Audio	typeref:typename:float	access:private
 destroy	./src/app.hpp	/^	void destroy();$/;"	p	class:App	typeref:typename:void	access:private	signature:()
 destroy	./src/audio.hpp	/^		void destroy();$/;"	p	class:Audio	typeref:typename:void	access:public	signature:()
-destroy	./src/window.hpp	/^		void	destroy();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
 flag_check	./src/window.hpp	/^		bool	flag_check(int);$/;"	p	class:Window	typeref:typename:bool	access:public	signature:(int)
 flag_clear	./src/window.hpp	/^		void 	flag_clear(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
 flag_set	./src/window.hpp	/^		void 	flag_set(int);$/;"	p	class:Window	typeref:typename:void	access:public	signature:(int)
@@ -135,7 +136,7 @@ height_reset	./src/window.hpp	/^		void	height_reset();$/;"	p	class:Window	typere
 init	./src/app.hpp	/^	void init(int, char**);$/;"	p	class:App	typeref:typename:void	access:private	signature:(int,char **)
 init	./src/audio.hpp	/^		bool init();$/;"	p	class:Audio	typeref:typename:bool	access:public	signature:()
 init	./src/scene.hpp	/^		void init();$/;"	p	class:Scene	typeref:typename:void	access:public	signature:()
-init	./src/window.hpp	/^		void	init();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
+init	./src/window.hpp	/^	void	init();$/;"	p	class:Window	typeref:typename:void	access:private	signature:()
 master_volume	./src/audio.hpp	/^	float master_volume;$/;"	m	class:Audio	typeref:typename:float	access:private
 sfx	./src/audio.hpp	/^	std::map<std::string, Sound> sfx;$/;"	m	class:Audio	typeref:typename:std::map<std::string,Sound>	access:private
 sfx_volume	./src/audio.hpp	/^	float sfx_volume;$/;"	m	class:Audio	typeref:typename:float	access:private
@@ -151,5 +152,6 @@ update_master_volume	./src/audio.hpp	/^		void update_master_volume(float);$/;"	p
 update_sfx_volume	./src/audio.hpp	/^		void update_sfx_volume(float);$/;"	p	class:Audio	typeref:typename:void	access:public	signature:(float)
 width	./src/window.hpp	/^		int		width;$/;"	m	class:Window	typeref:typename:int	access:public
 width_reset	./src/window.hpp	/^		void	width_reset();$/;"	p	class:Window	typeref:typename:void	access:public	signature:()
-window	./src/app.hpp	/^	Window window;$/;"	m	class:App	typeref:typename:Window	access:private
+window	./src/app.hpp	/^	Window* window;$/;"	m	class:App	typeref:typename:Window *	access:private
 ~App	./src/app.hpp	/^		~App()$/;"	f	class:App	access:public	signature:()
+~Window	./src/window.hpp	/^		~Window()$/;"	f	class:Window	access:public	signature:()
