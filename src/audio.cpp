@@ -65,11 +65,17 @@ Music * Audio::_get_music_track(char * id) {
 }
 
 void Audio::_destroy() {
-  for (auto & a : this->sfx) {
-    UnloadSound(a.second);
+  for (auto & sfx : this->sfx) {
+    if (IsSoundPlaying(sfx.second)) {
+      StopSound(sfx.second);
+    }
+    UnloadSound(sfx.second);
   }
-  for (auto & a : this->bgm) {
-    UnloadMusicStream(a.second);
+  for (auto & bgm : this->bgm) {
+    if (IsMusicStreamPlaying(bgm.second)) {
+      StopMusicStream(bgm.second);
+    }
+    UnloadMusicStream(bgm.second);
   }
   CloseAudioDevice();
   return;
