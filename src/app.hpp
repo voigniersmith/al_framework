@@ -2,6 +2,7 @@
 #define APP_HPP
 
 #include "window.hpp"
+#include "audio.hpp"
 
 class App
 {
