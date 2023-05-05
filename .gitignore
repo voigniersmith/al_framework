@@ -1,5 +1,7 @@
 main
 obj/
 *.swp
-./tags
+tags
 resources/
+compile_commands.json
+.cache/
