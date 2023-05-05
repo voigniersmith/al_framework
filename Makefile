@@ -42,6 +42,7 @@ clean:
 git: main
 	./scripts/git_configure.sh; \
 	if [ $(NEW_CHANGES) -ge $(NUM_CHANGES) ]; then \
+		make clean; \
 		git add . && git commit -a -m "Makefile Incremental Commit" && git push -u origin $(BRANCH); \
 	fi; \
 	echo; \
@@ -55,4 +56,8 @@ ctags: main
 	else \
 		echo "no update to ctags" && rm tags_temp; \
 	fi;
+
+bear:
+	make clean; \
+	bear -- make main
 

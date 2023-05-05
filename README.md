@@ -29,7 +29,15 @@ This project has support for ctags. Please check the [Makefile Support](#makefil
 
 ### Git
 
+Auto pushing to a user's `stage` branch.
+
 ### CTags
+
+This is for generating the `tags` file.
+
+### Bear
+
+This is for generating `compile_commands.json`.
 
 ## Todo Task List
 
