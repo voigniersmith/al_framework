@@ -1,0 +1,87 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-W",
+      "-Wall",
+      "-I.",
+      "-I/opt/homebrew/Cellar/raylib/4.5.0/include",
+      "-c",
+      "-o",
+      "obj/app.o",
+      "src/app.cpp"
+    ],
+    "directory": "/Users/andrew/Projects/al_framework",
+    "file": "/Users/andrew/Projects/al_framework/src/app.cpp",
+    "output": "/Users/andrew/Projects/al_framework/obj/app.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-W",
+      "-Wall",
+      "-I.",
+      "-I/opt/homebrew/Cellar/raylib/4.5.0/include",
+      "-c",
+      "-o",
+      "obj/audio.o",
+      "src/audio.cpp"
+    ],
+    "directory": "/Users/andrew/Projects/al_framework",
+    "file": "/Users/andrew/Projects/al_framework/src/audio.cpp",
+    "output": "/Users/andrew/Projects/al_framework/obj/audio.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-W",
+      "-Wall",
+      "-I.",
+      "-I/opt/homebrew/Cellar/raylib/4.5.0/include",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/Users/andrew/Projects/al_framework",
+    "file": "/Users/andrew/Projects/al_framework/src/main.cpp",
+    "output": "/Users/andrew/Projects/al_framework/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-W",
+      "-Wall",
+      "-I.",
+      "-I/opt/homebrew/Cellar/raylib/4.5.0/include",
+      "-c",
+      "-o",
+      "obj/scene.o",
+      "src/scene.cpp"
+    ],
+    "directory": "/Users/andrew/Projects/al_framework",
+    "file": "/Users/andrew/Projects/al_framework/src/scene.cpp",
+    "output": "/Users/andrew/Projects/al_framework/obj/scene.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-W",
+      "-Wall",
+      "-I.",
+      "-I/opt/homebrew/Cellar/raylib/4.5.0/include",
+      "-c",
+      "-o",
+      "obj/window.o",
+      "src/window.cpp"
+    ],
+    "directory": "/Users/andrew/Projects/al_framework",
+    "file": "/Users/andrew/Projects/al_framework/src/window.cpp",
+    "output": "/Users/andrew/Projects/al_framework/obj/window.o"
+  }
+]
