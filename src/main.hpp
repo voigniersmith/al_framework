@@ -27,6 +27,7 @@ using namespace std;
 #include "app.hpp"
 #include "window.hpp"
 #include "audio.hpp"
+#include "game_object.hpp"
 
 // Definitions
 #define WINDOW_DEFAULT_W	  640
